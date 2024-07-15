@@ -1,0 +1,89 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+#fullpage {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#construction {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 300px;
+  color: #222;
+}
+
+#construction h1 {
+  font-size: 3em;
+}
+
+#wide,
+#narrow,
+#verynarrow {
+  display: none;
+}
+
+@media only screen and (min-width: 700px) {
+  #wide {
+    white-space: nowrap;
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 699px) and (min-width: 451px) {
+  #narrow {
+    white-space: nowrap;
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #verynarrow {
+      text-align: center;
+    white-space: nowrap;
+    display: block;
+  }
+}
+
+#urls {
+  margin-top: 1.5em;
+  text-align: center;
+}
+
+#urls a {
+  color: #222;
+  text-decoration-color: #222;
+  text-decoration-thickness: 3px;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin: 0.25em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+#urls a {
+    display: inline-block;
+    color: #222;
+    text-decoration-color: #222;
+    transition: 300ms;
+}
+
+#urls a:hover {
+    color: red;
+    text-decoration-color: red;
+    transition: 300ms;
+}
+
+#construction-note {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+}

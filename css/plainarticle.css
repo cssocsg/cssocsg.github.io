@@ -1,0 +1,49 @@
+body {
+  font-family: "Open Sans", sans-serif;
+
+  max-width: min(40em,90%);
+  margin: auto;
+  margin-bottom: 2em;
+}
+
+p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+code,
+pre {
+  font-size: inherit;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  color: inherit;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
+li {
+  text-align: justify !important;
+  hyphens: auto;
+  margin-bottom: 5px;
+}
+
+/* link stylings */
+
+a {
+  text-decoration-color: transparent;
+  transition: 300ms;
+}
+
+a:link {
+  color: darkcyan;
+}
+
+a:visited {
+  color: blueviolet;
+}
+
+a:hover {
+  transition: 300ms;
+  color: red;
+  text-decoration: underline;
+}
