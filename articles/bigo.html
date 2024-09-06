@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Characterising Running Times through Big-O Notations</title>
+    <link
+      rel="stylesheet"
+      href="https://lalten.github.io/lmweb/style/latinmodern-roman.css"
+      type="text/css"
+      charset="utf-8"
+    />
+    <link rel="stylesheet" href="/css/article.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+      integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+"
+      crossorigin="anonymous"
+    />
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+      integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+      integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script>
+  </head>
+  <body>
+    <div id="banner">
+      <div id="title">TIME COMPLEXITY: THEORETICAL FOUNDATIONS</div>
+    </div>
+    <article>
+      <h1 id="heading">Characterising Running Times through Big-O Notations</h1>
+      <p id="subheading">Understanding the Big-O notation mathematically</p>
+
+      <div id="author-card">
+        <span id="author-name"><b>Jidneya Desale</b></span
+        ><span id="author-title">Y12 CSSOC member</span>
+      </div>
+
+      <p id="abstract">
+        In this article I hope to expand your idea of what Big O notation really
+        is and introduce it a more mathematical sense. We will not talk in depth
+        about its practical applications, but rather we will explore how Big O
+        notation really works and also give some graphical interpretations.
+        Through our newly gained understanding of the topic we will apply it to
+        some examples and this will lead us to understand why Big O notation
+        works the way that we have learnt in class, instead of jut accepting
+        that this is the way it works.
+      </p>
+
+      <p id="introduction">
+        I'm sure that you would have heard of the Big-O notation and its usage
+        in analysing the time complexity of algorithms. However a phrase that
+        you may not have heard is how it is used to describe the asymptotic
+        behaviour of functions in a mathematical context. In this article I want
+        to go over the Big-O notation in a new light.
+      </p>
+
+      <br />
+
+      <h2>The O-Notation</h2>
+
+      <p>
+        We know O-notation as being something that we use to analyse the time
+        complexity of an algorithm. However let me present to you another
+        definition:
+      </p>
+
+      <p>
+        <center>
+          O-notation characterizes an upper bound on the asymptotic behaviour of
+          a function.
+        </center>
+      </p>
+
+      <h3>Definition (intuitive)</h3>
+
+      <p>
+        What this is telling is that the function grows no faster than a certain
+        rate, where this rate is determined by the highest order term of that
+        function. \[f(x)=9n^3+6n^2+10n+7\]
+      </p>
+
+      <p>
+        For example we have this function $f$, we would write the time
+        complexity in Big-O notation as \(O(n^3)\). What may surprise you is
+        that we could also write the time complexity for the function as
+        \(O(n^4)\), \(O(n^5)\), or even \(O(n^6)\). This is because the function
+        grows slowly than anything above \(n^3\).
+      </p>
+
+      <p>
+        Thus we can generalise this by saying \[O(n^c)\qquad\text{where
+        $c\geq3$}\] But of course in practice we would only use \(O(n^3)\) as it
+        is more useful than any higher power of $n$.
+      </p>
+
+      <h3>Definition (formal)</h3>
+
+      <p>
+        What we just saw is a more conceptual understanding of the Big-O
+        notation, however now it is time we formalise this definition into a
+        more concrete mathematical one:
+      </p>
+
+      <p>
+        For a given function \(g(n)\), we denote by \(O(g(n))\) the set of all
+        the functions:
+      </p>
+      <p>
+        $$O(g(n))=f(n):\text{there exist positive constants $c$ and $n_0$}$$
+      </p>
+
+      <p>such that \(0\leq f(n)\leq cg(n)\) for all \(n\geq n_0\)</p>
+
+      <h4>Visualisation</h4>
+
+      <p>The below graph is a very good visualisation of the Big-O notation:</p>
+
+      <img src="/img/bigo1.svg" class="article-image" />
+
+      <p>
+        One important restriction that we should be aware of is that the
+        definition of \(O(g(n))\) requires every function \(f(n)\) in the set
+        \(O(g(n))\) must be <i>asymptotically non-negative</i>: which is where
+        \(f(n)\) must be non-negative whenever \(n\) is sufficiently large. This
+        also implies that the function \(g(n)\)must also be asymptotically
+        non-negative, or the set of \(O(g(n))\) would be empty.
+      </p>
+
+      <p>
+        Great, now we know that we define Big O notation in term of sets, but
+        you must now be confused as to why we usually write \(f(n) = O(g(n))\),
+        instead of using the proper set syntax of \(f(n) \in O(g(n))\).
+      </p>
+
+      <p>
+        It might seem a bit confusing at first, but by abusing the equality this
+        way, we can its advantages.
+      </p>
+
+      <h3>Worked example</h3>
+      <p>$$f(n)=4n^2+100n+500$$</p>
+
+      <p>
+        Let us now conceptually understand is why for this example, why the
+        Big-O notation is \(O(n^2)\), rather than \(O(n)\), where the
+        coefficient of \(n\) is much larger (25 times) than the coefficient of
+        \(n^2\).
+      </p>
+
+      <p>
+        When we graph both the graphs of \(4n^2\) and \(100n\), we shall see
+        that eventually \(4n^2 &lt; 100n\)
+      </p>
+
+      <img src="/img/bigo2.svg" class="article-image" />
+
+      <p>
+        Let us now use our formal definition to explore some examples and why we
+        use equality this way.
+      </p>
+
+      <p>
+        Take the example of \(4n^2+100n+500 = O(n^2)\), despite the coefficient
+        of \(n^2\) being comparatively much smaller than the others. To do this
+        we must first find positive constants \(c\) and \(n_0\) such that
+      </p>
+
+      <p>$$4n^2+100n+500 \leq cn^2\qquad\text{for all $n \geq n_0$}$$</p>
+
+      <p>
+        By dividing both sides of the equation by \(n^2\), we can see that we
+        now get the inequality
+      </p>
+
+      <p>$$4 + 100/n + 500/n^2 \leq c$$</p>
+
+      <p>
+        There are many values of \(c\) and \(n_0\) that satisfy the equation,
+        such as \(c = 604\) and \(n_0 = 1\). Another thing that we should see is
+        that as \(n\) grows, the value of the expression decreases, and thus the
+        inequality is never violated.
+      </p>
+
+      <p>
+        Now let us see an example where the inequality is violated, and why some
+        functions do not belong to the Big-O notation of functions of smaller
+        exponents.
+      </p>
+
+      <p>$$f(n)=n^3-100n^2$$</p>
+
+      <p>
+        Why does it not belong to \(O(n^2)\) even though the coefficient of the
+        \(n^2\) term is a much larger negative number? One conceptual way to
+        understand this is that at some point \(n^3 \geq 100n^2\), so the output
+        of the function will basically only be determined by \(n^3\) as the
+        function grows very big - which is what our Big-O notation works for.
+        This uses the same concept that we have used above.
+      </p>
+
+      <p>What we can also say is that</p>
+      <ul>
+        <li>If \(n^3-100n^2=O(n^2)\),</li>
+        <li>Implies \(n^3-100n^2\leq cn^2\) for all \(n\geq n_0\)</li>
+      </ul>
+
+      <p>
+        Some simplification lead us to \(n-100\leq c\). So no matter what value
+        we choose for \(c\), this inequality will not hold if \(n&gt;c+100\),
+        thus it is invalid.
+      </p>
+
+      <h2>Extensions</h2>
+
+      <p>Three questions are presented below for yours to try:</p>
+
+      <ol type="a">
+        <li>
+          Explain why the statement,
+          <i>the running time of \(A\) is at least \(O(n^2)\)</i>, is
+          meaningless.
+        </li>
+        <li>Is \(2^{n+1} = O(2^n)\)?</li>
+        <li>Is \(2^{2n} = O(2^n)\)?</li>
+      </ol>
+    </article>
+  </body>
+</html>

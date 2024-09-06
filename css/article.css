@@ -1,0 +1,140 @@
+body {
+  margin: auto;
+  margin-top: 1.5em;
+  margin-bottom: 3em;
+  width: calc(min(60em, 100vw) - 4em);
+  padding: 5px;
+  font-family: "Latin Modern Roman", sans-serif;
+}
+
+#banner {
+  background-image: url("/img/articleHeader.png");
+  background-size: cover;
+  padding-top: 170px;
+  padding-bottom: 40px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+#title {
+  text-align: left;
+  padding-left: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: rgb(239, 241, 245);
+  background-color: rgb(53, 57, 75);
+  display: inline-block;
+  width: 60%;
+  font-family: Arial, sans-serif;
+}
+
+.katex-html .base {
+  scale: 0.8 !important;
+  color: rgb(42, 45, 65);
+  margin: -0.2em;
+}
+
+article {
+  color: rgb(42, 45, 65);
+  width: 70%;
+  margin: auto;
+  text-align: justify;
+}
+
+#heading {
+  margin-top: 1.5em;
+  font-size: 3em;
+  font-weight: 200;
+  font-family: Arial, sans-serif;
+  line-height: 1.3em;
+  text-align: left;
+  color: rgb(30, 105, 200);
+}
+
+#subheading {
+  margin-top: -1em;
+  font-size: 1.5em;
+  font-weight: 200;
+  font-family: Arial, sans-serif;
+  margin-bottom: 2em;
+  text-align: left;
+  color: rgb(92, 95, 119);
+}
+
+#author-name {
+  display: block;
+}
+
+#author-title {
+  display: block;
+}
+
+#author-card {
+  background-color: rgb(230, 233, 239);
+  float: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: inline-block;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+#abstract {
+  font-family: Arial, sans-serif;
+  line-height: 1.5em;
+  font-weight: 200;
+}
+
+h2::before {
+  content: "";
+  display: inline-block; /* Makes the rectangle a block element */
+  width: 12px; /* Set the width of the rectangle */
+  height: 25px; /* Set the height of the rectangle */
+  margin-right: 10px;
+  background-color: rgb(92, 95, 119);
+}
+
+h2 {
+  margin-top: 1.3em;
+  margin-bottom: 0.2em;
+  font-family: Arial, sans-serif;
+  font-weight: 300;
+  font-size: 1.6em;
+  color: rgb(30, 105, 200);
+}
+
+h3 {
+  margin-top: 1em;
+  margin-bottom: -0.2em;
+  font-family: Arial, sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  color: rgb(30, 105, 200);
+}
+
+h4 {
+  margin-top: 0.8em;
+  margin-bottom: -0.5em;
+  font-family: Arial, sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+}
+
+p:not(#abstract) {
+  color: black;
+}
+
+center {
+  display: block;
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
+.article-image {
+  margin: auto;
+  display: block;
+}
